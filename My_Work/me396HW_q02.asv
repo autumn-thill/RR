@@ -1,0 +1,12 @@
+%% ME396HW_q02
+
+%This matrix is composed of elements from Problem 1. Since r = (c+si) and
+%rotates the complex number by 120 degrees if c = cos(angle) and s =
+%sin(angle). Therefore, the rotational matrix is [c -s; s c]  (From 6-28 of
+%RR)
+
+z1 = [0.866; 0.5];  %Given vector 
+
+%this rotates z1 by 120 degrees 
+G = [cosd(120) -sin(120); sind(120) cosd(120)]
+z2 = G*z1  

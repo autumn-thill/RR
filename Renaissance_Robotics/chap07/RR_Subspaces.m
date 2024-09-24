@@ -26,34 +26,34 @@ if m==n
 else
    disp('A is not square, determinant not defined.')
 end 
-disp('Here is the rank of A:'), r=rank(A), pause, disp(' ')
+disp('Here is the rank of A:'), r=rank(A),  disp(' ')
 
 if ((m==n) & (n==r))
    disp('The inverse of A exists, here it is:'), Ap=inv(A)
    disp('Here is the inverse of A with the denominator fac conveniently pulled out:') 
    [Ap_num,fac]=RR_rat(Ap)
    disp('Here is A times the inverse of A, which should give the identity matrix:')
-   test=A*Ap, pause, disp(' ')
+   test=A*Ap, disp(' ')
    disp('Here are some orthogonal vectors spanning the Column Space and the Left Nullspace:')
    C=eye(r), L=[]
    disp('Here are some orthogonal vectors spanning the Row Space and the Nullspace:')
-   R=eye(r), N=[], pause, disp(' ')
+   R=eye(r), N=[],  disp(' ')
 else
    disp('The inverse of A does not exist!')
    disp('Instead, here is the pseudoinverse of A, denoted A^+'), Ap=pinv(A)
    disp('Here is A^+ with the denominator fac conveniently pulled out:') 
-   [Ap_num,fac]=RR_rat(Ap), pause, disp(' ')
+   [Ap_num,fac]=RR_rat(Ap),  disp(' ')
 
    disp('Here are some orthogonal vectors spanning the Column Space and the Left Nullspace:')
    [C,L]=QRcheck(A,r)
    disp('Here are some orthogonal vectors spanning the Row Space and the Nullspace:')
-   [R,N]=QRcheck(A',r), pause, disp(' ')
+   [R,N]=QRcheck(A',r), disp(' ')
 
    disp('here is how A and A^+ transform a randomly-generated xR')
    disp('from the row space to the column space and back');
    xR=0; for i=1:r, xR=xR+ran*R(:,i); end, xR   % First, build up a random xR
    yC=A*xR, Ap_yC=Ap*yC                         % Map from xR to yC and then back to xR
-   disp('Note: xR and Ap_yC should be the same.'), pause, disp(' ') 
+   disp('Note: xR and Ap_yC should be the same.'), disp(' ') 
 
    if n>r
       disp('there is junk in the nullspace.  here is a randomly generated xN:')
@@ -62,7 +62,7 @@ else
       A_times_xN=A*xN, disp('Note: A should map xN to close to zero.')
    else
       disp('the nullspace only contains the zero element')
-   end, pause, disp(' ')
+   end,  disp(' ')
 
    if m>r
       disp('there is junk in the left nullspace.  here is a randomly generated yL:')
@@ -71,7 +71,7 @@ else
       Ap_times_yL=Ap*yL, disp('Note: Ap should map yL to close to zero.')
    else
       disp('the nullspace only contains the zero element')
-   end, pause, disp(' ')
+   end, disp(' ')
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
